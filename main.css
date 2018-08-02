@@ -1,0 +1,53 @@
+#clock{
+    position: fixed;
+    text-align: center;
+    padding: 10px;
+    width: 55%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 2px 2px #333;
+    background: #ccc;
+    font-size: 5em;
+}
+
+body{
+    background-color: #333;
+}
+p{
+    color:white;
+    font-weight: bold;
+    display:flex;
+    justify-content: space-between
+}
+
+
+
+#clock span{
+    
+}
+
+#greet{
+    color: white;
+    font-size: 2em;
+    font-weight: white;
+    position:absolute;
+    bottom: 10px;
+}
+
+@media (max-width:700px){
+    #clock{
+        width: 70%;
+        font-size: 3.53em;
+    }
+
+    p{
+        display: block;
+    }
+
+    p>span {
+        display: block;
+    }
+
+
+}
