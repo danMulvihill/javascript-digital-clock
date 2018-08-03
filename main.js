@@ -6,19 +6,17 @@ setInterval(getTheTime, 10);
 
 //this was an attempt to get it to allow user to change colors every 1/100 of
 //a second, but I couldn't get it to function
-document.querySelector("#cs-button").onclick = function(){
+//document.querySelector("#cs-button").onclick = function(){
      // console.log(bigMins);
     //var speed = "fast";
+    //setInterval(function(){ getTheTime("fast") }, 10);
+//}
 
-    clearInterval(function(){ getTheTime("slow") });
-    setInterval(function(){ getTheTime("fast") }, 1000);
-}
-
-document.querySelector("#sec-button").onclick = function(){
+//document.querySelector("#sec-button").onclick = function(){
     //var speed = "slow";
-    clearInterval(getTheTime);
-    setInterval(function(){ getTheTime("slow") }, 10);
-}
+    //clearInterval(getTheTime);
+    //setInterval(function(){ getTheTime("slow") }, 10);
+//}
 
 function getTheTime(speed="slow"){
     console.log(speed)
@@ -36,14 +34,17 @@ function getTheTime(speed="slow"){
     // this is an extra feature I added to make the background color brighter.
     // I multipiled the hour by 4 and the mins and secs by 1.6; 
     var bigHr = time.getHours() * 4;
+    document.querySelector('#red').style.width = bigHr+"%";
     // console.log(bigHr);
     var bigMins = parseInt(time.getMinutes() * 1.6);
+    document.querySelector('#green').style.width = bigMins+"%";
     if (bigMins<10){
         bigMins = "0" + bigMins;
     } 
 
     // console.log(bigMins);
     var bigSecs = parseInt(time.getSeconds() * 1.6);
+    document.querySelector('#blue').style.width = bigSecs+"%";
     if (bigSecs<10){
         bigSecs = "0" + bigSecs;
     } 
