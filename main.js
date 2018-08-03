@@ -19,50 +19,42 @@ setInterval(getTheTime, 10);
 //}
 
 function getTheTime(){
-    var speed = "slow";
+    //var speed = "slow";
     var time = new Date();
     var timeStr = time.toString();
     var timeStr2 = timeStr.split(' ');
     var timeStr1 = timeStr.split(' ')[4];
     //"18:39:14"
     //var TimeZoneStr = timeStr.split(' ')[6]+timeStr.split(' ')[7] + timeStr.split(' ')[8]; 
-    //console.log(TimeZoneStr);
     var hrsMinsSecs = timeStr.split(' ')[4].split(':');
     // ["18", "39", "14"]
-    // console.log(hrsMinsSecs);
  
     // this is an extra feature I added to make the background color brighter.
     // I multipiled the hour by 4 and the mins and secs by 1.6; 
     var bigHr = time.getHours() * 4;
     document.querySelector('#red').style.width = bigHr+"%";
-    // console.log(bigHr);
+
     var bigMins = parseInt(time.getMinutes() * 1.6);
     document.querySelector('#green').style.width = bigMins+"%";
     if (bigMins<10){
         bigMins = "0" + bigMins;
     } 
 
-    // console.log(bigMins);
     var bigSecs = parseInt(time.getSeconds() * 1.6);
     document.querySelector('#blue').style.width = bigSecs+"%";
     if (bigSecs<10){
         bigSecs = "0" + bigSecs;
     } 
 
-    var csecs = parseInt(time.getMilliseconds()/10);
-    
-    if (csecs<10){
-        csecs = '0' + csecs;
-    }
-    //console.log(csecs);
-    
-    if (speed == "fast"){
-        var concatHex = "#"+bigMins+bigSecs+csecs;
-    }else{
-        var concatHex = "#"+bigHr+bigMins+bigSecs;
-    }
-     
-    //console.log(concatHex);
+    // var csecs = parseInt(time.getMilliseconds()/10); 
+    // if (csecs<10){
+    //     csecs = '0' + csecs;
+    // }  
+    // if (speed == "fast"){
+    //     var concatHex = "#"+bigMins+bigSecs+csecs;
+    // }else{
+            var concatHex = "#"+bigHr+bigMins+bigSecs;
+    // }
 
     // change the body's background color:
     document.querySelector('body').style.backgroundColor = concatHex;
