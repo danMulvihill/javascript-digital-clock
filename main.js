@@ -18,8 +18,8 @@ setInterval(getTheTime, 10);
     //setInterval(function(){ getTheTime("slow") }, 10);
 //}
 
-function getTheTime(speed="slow"){
-    console.log(speed)
+function getTheTime(){
+    var speed = "slow";
     var time = new Date();
     var timeStr = time.toString();
     var timeStr2 = timeStr.split(' ');
