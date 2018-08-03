@@ -31,16 +31,16 @@ function getTheTime(){
  
     // this is an extra feature I added to make the background color brighter.
     // I multipiled the hour by 4 and the mins and secs by 1.6; 
-    var bigHr = time.getHours() * 4;
+    var bigHr = parseInt(time.getHours() * 4.16);
     document.querySelector('#red').style.width = bigHr+"%";
 
-    var bigMins = parseInt(time.getMinutes() * 1.6);
+    var bigMins = parseInt(time.getMinutes() * 1.68);
     document.querySelector('#green').style.width = bigMins+"%";
     if (bigMins<10){
         bigMins = "0" + bigMins;
     } 
 
-    var bigSecs = parseInt(time.getSeconds() * 1.6);
+    var bigSecs = parseInt(time.getSeconds() * 1.68);
     document.querySelector('#blue').style.width = bigSecs+"%";
     if (bigSecs<10){
         bigSecs = "0" + bigSecs;
