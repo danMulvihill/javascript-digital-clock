@@ -1,22 +1,27 @@
 
-var speed = "slow";
+//var speed = "slow"
+
 setInterval(getTheTime, 10);
+
 
 //this was an attempt to get it to allow user to change colors every 1/100 of
 //a second, but I couldn't get it to function
 document.querySelector("#cs-button").onclick = function(){
      // console.log(bigMins);
-    // document.querySelector('body').style.backgroundColor = concatHex;
-    var speed = "fast";
-    setInterval(getTheTime, 10);
+    //var speed = "fast";
+
+    clearInterval(function(){ getTheTime("slow") });
+    setInterval(function(){ getTheTime("fast") }, 1000);
 }
 
 document.querySelector("#sec-button").onclick = function(){
-    var speed = "slow";
-    setInterval(getTheTime, 10);
+    //var speed = "slow";
+    clearInterval(getTheTime);
+    setInterval(function(){ getTheTime("slow") }, 10);
 }
 
-function getTheTime(){
+function getTheTime(speed="slow"){
+    console.log(speed)
     var time = new Date();
     var timeStr = time.toString();
     var timeStr2 = timeStr.split(' ');
@@ -50,9 +55,10 @@ function getTheTime(){
     }
     //console.log(csecs);
     
-    var concatHex = "#"+bigHr+bigMins+bigSecs;
     if (speed == "fast"){
         var concatHex = "#"+bigMins+bigSecs+csecs;
+    }else{
+        var concatHex = "#"+bigHr+bigMins+bigSecs;
     }
      
     //console.log(concatHex);
